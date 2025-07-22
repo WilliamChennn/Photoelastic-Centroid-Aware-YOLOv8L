@@ -27,15 +27,16 @@ This project implements a centroid detection system for photoelastic granular fl
     │ ├── val/
 
 ##Usage
-#Training
+
+-Training
 ˋˋˋyolo task=detect mode=train model=yolov8l.pt data=your_data.yaml epochs=100 imgsz=640
 Replace your_data.yaml with your dataset configuration file containing train/val paths and class info.
 
-#Inference
+-Inference
 ˋˋˋyolo task=detect mode=predict model=runs/train/weights/best.pt source=dataset/images/val save=True
 Run prediction and save output images.
 
-Project Structure
+##Project Structure
 
 ˋˋˋphotoelastic-centroid-yolov8/
 │
