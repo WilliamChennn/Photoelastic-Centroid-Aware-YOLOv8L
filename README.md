@@ -24,4 +24,4 @@ This project implements a centroid detection system for photoelastic granular fl
     │ ├── val/
     ├── labels/
     │ ├── train/
-    │ ├── val/```
+    │ ├── val/
