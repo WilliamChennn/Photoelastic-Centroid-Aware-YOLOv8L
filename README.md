@@ -38,7 +38,8 @@ This project implements a centroid detection system for photoelastic granular fl
 
 ## Project Structure
 
-  ```photoelastic-centroid-yolov8/
+  ```
+  photoelastic-centroid-yolov8/
   │
   ├── dataset/                # Training and validation images and labels
   ├── runs/                   # YOLOv8 training output models and results
