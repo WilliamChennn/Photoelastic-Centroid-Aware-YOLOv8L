@@ -21,10 +21,10 @@ This project implements a centroid detection system for photoelastic granular fl
   ```dataset/
     ├── images/
     │ ├── train/
-    │ ├── val/
+    │ ├── test/
     ├── labels/
     │ ├── train/
-    │ ├── val/
+    │ ├── test/
 
 ## Usage
 
@@ -38,12 +38,12 @@ if __name__ == '__main__':
     # Train the model
     model.train(
         data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
-        epochs=80,        # Increase training epochs for better convergence
-        imgsz=1280,       # Increase image resolution for better center point accuracy
-        batch=4,          # Reduce batch size to accommodate larger model
-        lr0=0.0003,       # Lower initial learning rate to prevent overfitting
-        lrf=0.1,          # Reduce final learning rate for smoother convergence
-        freeze=0,         # Freeze the first 5 layers to stabilize training
+        epochs=80,        
+        imgsz=1280,       
+        batch=4,          
+        lr0=0.0003,       
+        lrf=0.1,         
+        freeze=0,         
 
         # **Reduce the impact of data augmentation**
         # **Color augmentation**      
