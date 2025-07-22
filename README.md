@@ -48,3 +48,17 @@ This project implements a centroid detection system for photoelastic granular fl
   ├── README.md
   ├── requirements.txt        # Python package dependencies
   └── your_data.yaml          # YOLO format dataset config file
+```
+
+## Evaluation
+- Evaluate detection performance using Precision, Recall, and F1-score.
+- Custom scripts compare predicted centroids with ground truth, calculate errors, and visualize differences.
+
+## References
+- YOLOv8 official repository: https://github.com/ultralytics/ultralytics
+- Relevant literature on photoelastic granular flow analysis
+
+## Contact
+CHEN BO WEI
+Email: william20020602@gmail.com
+GitHub: https://github.com/WilliamChennn
