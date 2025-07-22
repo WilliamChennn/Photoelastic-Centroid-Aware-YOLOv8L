@@ -18,10 +18,10 @@ This project implements a centroid detection system for photoelastic granular fl
 - Experimental photoelastic images of granular flows on inclined planes  
 - Annotations in YOLO format with bounding boxes approximating particle centroids and radii  
 - Data folder structure example:
--   dataset/
+-   '''dataset/
     ├── images/
     │ ├── train/
     │ ├── val/
     ├── labels/
     │ ├── train/
-    │ ├── val/
+    │ ├── val/'''
