@@ -31,28 +31,28 @@ This project implements a centroid detection system for photoelastic granular fl
 - Training
   ```from ultralytics import YOLO
 
-if __name__ == '__main__':
-    # Load YOLOv8l model (large version)
-    model = YOLO('yolov8l.pt')  
-
-    # Train the model
-    model.train(
-        data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
-        epochs=80,        
-        imgsz=1280,       
-        batch=4,          
-        lr0=0.0003,       
-        lrf=0.1,         
-        freeze=0,         
-
-        # **Reduce the impact of data augmentation**
-        # **Color augmentation**      
-        # **Adjust IoU and loss weights**
-        # **Mixed precision training**
-    )
-
-    # Validate the model
-    metrics = model.val()
+    if __name__ == '__main__':
+        # Load YOLOv8l model (large version)
+        model = YOLO('yolov8l.pt')  
+    
+        # Train the model
+        model.train(
+            data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
+            epochs=80,        
+            imgsz=1280,       
+            batch=4,          
+            lr0=0.0003,       
+            lrf=0.1,         
+            freeze=0,         
+    
+            # **Reduce the impact of data augmentation**
+            # **Color augmentation**      
+            # **Adjust IoU and loss weights**
+            # **Mixed precision training**
+        )
+    
+        # Validate the model
+        metrics = model.val()
 
 - Inference
   ```yolo task=detect mode=predict model=runs/train/weights/best.pt source=dataset/images/val save=True
