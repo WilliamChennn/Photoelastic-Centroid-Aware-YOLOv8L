@@ -29,8 +29,30 @@ This project implements a centroid detection system for photoelastic granular fl
 ## Usage
 
 - Training
-  ```yolo task=detect mode=train model=yolov8l.pt data=your_data.yaml epochs=100 imgsz=640
-  Replace your_data.yaml with your dataset configuration file containing train/val paths and class info.
+  ```from ultralytics import YOLO
+
+if __name__ == '__main__':
+    # Load YOLOv8l model (large version)
+    model = YOLO('yolov8l.pt')  
+
+    # Train the model
+    model.train(
+        data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
+        epochs=80,        # Increase training epochs for better convergence
+        imgsz=1280,       # Increase image resolution for better center point accuracy
+        batch=4,          # Reduce batch size to accommodate larger model
+        lr0=0.0003,       # Lower initial learning rate to prevent overfitting
+        lrf=0.1,          # Reduce final learning rate for smoother convergence
+        freeze=0,         # Freeze the first 5 layers to stabilize training
+
+        # **Reduce the impact of data augmentation**
+        # **Color augmentation**      
+        # **Adjust IoU and loss weights**
+        # **Mixed precision training**
+    )
+
+    # Validate the model
+    metrics = model.val()
 
 - Inference
   ```yolo task=detect mode=predict model=runs/train/weights/best.pt source=dataset/images/val save=True
