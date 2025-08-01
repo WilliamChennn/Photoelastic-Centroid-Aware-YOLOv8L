@@ -14,11 +14,10 @@ This project implements a centroid detection system for photoelastic granular fl
 
 
 # YOLO Data Preprocessing Script
-```Preprocessing.py``` is the script that converts circle annotation data stored in ```.mat``` files into YOLO-compatible label files. The script normalizes the coordinates and dimensions of annotated circles to match YOLO's labeling format.
 ## Label Annotation
 To avoid manual annotation, we used image processing algorithms written in MATLAB to automatically extract the centroids and radii of photoelastic particles. These results are converted into YOLOv8-compatible labels. The following outlines the script structure and folder organization:
 ```
-    Automated Labeling Pipeline via Image Processing
+    Automated Labeling Scripts via Image Processing
     │
     ├── Rawimg.tif
     |   ├── Centroid.m            % Main function: image processing and particle extraction
@@ -58,6 +57,18 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
   </tr>
 </table>
 
+## Label Transformation
+
+```Preprocessing.py``` is the script that converts circle annotation data stored in ```.mat``` files into YOLO-compatible label files. The script normalizes the coordinates and dimensions of annotated circles to match YOLO's labeling format.
+- Extracts circle coordinates and dimensions (```x```, ```y```, ```r```) in ```.mat``` files.
+- Extracts Raw image dimensions (```W```, ```H```).
+- Generates YOLO label files with the format:
+```
+<Class_id> <Normalized_x> <Normalized_y> <Normalized_w> <Normalized_h>
+```
+     <Class_id> : 0 (single class for circles)
+     ( <Normalized_x> , <Normalized_y> ) : ( x / W , y / H ), Normalized circle center coordinates.
+     ( <Normalized_w> , <Normalized_h> ) : ( 2r / W , 2r / H ), Normalized circle dimensions.
 
 ## Dataset
 
