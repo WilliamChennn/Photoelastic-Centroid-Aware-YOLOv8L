@@ -14,7 +14,8 @@ This project implements a centroid detection system for photoelastic granular fl
 
 
 # YOLO Data Preprocessing Script
-## Label Annotation
+## 1. Image Preprocessing
+## 1. Label Annotation
 To avoid manual annotation, we used image processing algorithms written in MATLAB to automatically extract the centroids and radii of photoelastic particles. These results are converted into YOLOv8-compatible labels. The following outlines the script structure and folder organization:
 ```
     Automated Labeling Scripts via Image Processing
@@ -29,7 +30,7 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
     |   │   ├── label.tif   
     |   │   └── label.mat
 ```
-## Label Visualization
+### Label Visualization
 <table>
   <tr>
     <td>
@@ -57,18 +58,20 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
   </tr>
 </table>
 
-## Label Transformation
+## 2. Label Transformation
 
-```Preprocessing.py``` is the script that converts circle annotation data stored in ```.mat``` files into YOLO-compatible label files. The script normalizes the coordinates and dimensions of annotated circles to match YOLO's labeling format.
+```label preprocessing.py``` is the script that converts circle annotation data stored in ```.mat``` files into YOLO-compatible label files. The script normalizes the coordinates and dimensions of annotated circles to match YOLO's labeling format.
 - Extracts circle coordinates and dimensions (```x```, ```y```, ```r```) in ```.mat``` files.
 - Extracts Raw image dimensions (```W```, ```H```).
-- Generates YOLO label files with the format:
+- Generates YOLO label as ```.txt``` files with the format:
 ```
 <Class_id> <Normalized_x> <Normalized_y> <Normalized_w> <Normalized_h>
 ```
      <Class_id> : 0 (single class for circles)
      ( <Normalized_x> , <Normalized_y> ) : ( x / W , y / H ), Normalized circle center coordinates.
      ( <Normalized_w> , <Normalized_h> ) : ( 2r / W , 2r / H ), Normalized circle dimensions.
+
+- Add two additional labels with the same content and distinguished by ```basemane_(1).txt``` and ```basename_(2).txt``` to correspond to the Gaussian blurred and contrast enhanced images.
 
 ## Dataset
 
