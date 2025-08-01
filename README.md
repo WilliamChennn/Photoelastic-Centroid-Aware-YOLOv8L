@@ -158,7 +158,7 @@ val: dataset/test          # Path to testing images and labels
 nc: 1                # Number of classes (only circles)
 names: [circle]      # Class name
 ```
-## YOLOv8l Training
+## 5. YOLOv8l Training
 
 - Training Script with Hyperparameter Tuning
   
@@ -203,7 +203,14 @@ data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
     # Validate the model
     metrics = model.val()
 ```
-- Inference
+## 6. YOLOv8 circular object detection
+```Inference.py``` shows that the particle analysis in photoelastic images by ```best.pt```, which is trained YOLOv8l. Assuming each detection frame represents a roughly circular particle, it converts it into (x, y, r) format for subsequent analysis.
+- Load the trained YOLOv8 model
+- Convert the original image to grayscale and apply simple thresholding
+- Perform inference to obtain all bounding boxes
+- Convert each box to a circle center and radius, and normalize by size (18 or 24)
+- Visualize the results and save the output image
+- Print information about all detected circles
 ```python
 from ultralytics import YOLO
 from PIL import Image
@@ -217,10 +224,10 @@ def adjust_radius(r):
     return 18 if abs(r - 18) < abs(r - 24) else 24
 
 if __name__ == '__main__':
-    model = YOLO('C:/Users/lab533/Desktop/retrain/runs/detect/train4/weights/best.pt')
+    model = YOLO('runs/detect/train/weights/best.pt')
     
     # input/output path setting
-    image_path = 'C:/Users/lab533/Desktop/objection/YOLO28D12cm/28度12cm(4)_img/2021.11.23_002927.tif'
+    image_path = '2021.11.23_002927.tif'
     output_folder = 'C:/Users/lab533/Desktop/'
     os.makedirs(output_folder, exist_ok=True)
     output_image_path = os.path.join(output_folder, 'output_image.jpg')
@@ -269,6 +276,20 @@ if __name__ == '__main__':
     for i, (x_i, y_i, r_i) in enumerate(sorted_detections):
         print(f"Object {i + 1}: Center (x_i, y_i) = ({x_i:.2f}, {y_i:.2f}), Adjusted Radius r_i = {r_i:.2f}")
 ```
+### Output visualization 
+1. Visualizations can clearly show the discrepancies between model predictions and actual conditions.
+2. This helps quickly identify model errors and potential problems.
+3. It also enhances the persuasiveness of your results, making them easier to explain to non-experts.
+<table>
+  <tr>
+    <td>
+      <img src="referimages/Inferenceimage.png" width="350"><br>
+      <p align="center"><b>Inference image</b></p>
+    </td>
+  </tr>
+</table>
+
+
 ## Project Structure
 
   ```
