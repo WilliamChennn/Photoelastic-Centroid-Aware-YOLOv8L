@@ -33,8 +33,20 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
 ## Label Visualization
 <table>
   <tr>
-    <td><img src="results/img1.png" width="300"><br><center>Step 1: Raw</center></td>
-    <td><img src="labeltif.png" width="300"><br><center>Step 2: Labeled</center></td>
+    <td><img src="Rawimg.tif" width="300"><br><center>Step 1: Raw image</center></td>
+    <td><img src="labeltif.png" width="300"><br><center>Step 2: Label image</center></td>
+      <tr>
+          <th>x (px)</th><th>y (px)</th><th>r (px)</th>
+        </tr>
+        <tr>
+          <td>17.7100</td><td>255.3656</td><td>18</td>
+        </tr>
+        <tr>
+          <td>24.1099</td><td>330.5085</td><td>24</td>
+        </tr>
+        <tr>
+          <td>12.1825</td><td>399.0238</td><td>18</td>
+        </tr>
   </tr>
 </table>
 
