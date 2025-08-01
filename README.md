@@ -292,7 +292,7 @@ if __name__ == '__main__':
 
 
 ## Project Structure
-```ccs
+```css
 Photoelastic-Centroid-Aware-YOLOv8L/
 │
 ├── referimages/                     # reference images in the README
