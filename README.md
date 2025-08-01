@@ -43,6 +43,7 @@ This helps the model more easily focus on key areas such as particle structure a
 </table>
 
 ## 2. Label Annotation
+### Matlab Labeling
 To avoid manual annotation, we used image processing algorithms written in MATLAB to automatically extract the centroids and radii of photoelastic particles. These results are converted into YOLOv8-compatible labels. The following outlines the script structure and folder organization:
 ```
     Automated Labeling Scripts via Image Processing
@@ -295,20 +296,21 @@ if __name__ == '__main__':
 Photoelastic-Centroid-Aware-YOLOv8L/
 │
 ├── referimages/                     # reference images in the README
-│ ├── raw_image.tif
-│ ├── blurred_image.tif
-│ ├── contrast_image.tif
-│ ├── label_image.tif
-│ └── output_image.jpg
+|   ├──Inferenceimage.jpg
+│   ├── Rawimg.jpg
+│   ├── baelineimage.png
+│   ├── blurredimage.png
+│   ├── contrastedimage.png
+│   └── labeltif.png
 |
 ├── matlab_labeling/              # MATLAB automatic labeling source code and results
-│ ├── Centroid.m
-│ ├── frameName.m
-│ ├── dig2str.m
-│ ├── PTV2.m
-│ └── results/
-│ ├── label.tif
-│ └── label.mat
+│   ├── Centroid.m
+│   ├── frameName.m
+│   ├── dig2str.m
+│   ├── PTV2.m
+│   └── results/
+│   |   ├── label.tif
+│   |   └── label.mat
 |
 ├── Inference.py                     # Inference + circle visualization scripts
 ├── README.md                        # Project description and instructions (written content is recommended here)
@@ -318,10 +320,10 @@ Photoelastic-Centroid-Aware-YOLOv8L/
 ├── image_preprocessing.py           # Image preprocessing such as Gaussian blur and contrast enhancement
 |
 ├── runs/                            # YOLOv8 training output (model weights, logs)
-│ └── detect/
-│ └── train/
-│ └── weights/
-│ └── best.pt
+│   ├── detect/
+│   ├── train/
+│   ├── weights/
+│   └── best.pt
 ```
 
 ## Evaluation
