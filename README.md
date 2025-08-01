@@ -328,6 +328,19 @@ Photoelastic-Centroid-Aware-YOLOv8L/
 
 ## Evaluation
 - Evaluate detection performance using Precision, Recall, and F1-score.
+<table>
+  <tr>
+    <td>
+      <img src="referimages/P_curve.png" width="500"><br>
+    </td>
+    <td>
+      <img src="referimages/F1_curve.png" width="500"><br>
+    </td>
+    <td>
+      <img src="referimages/R_curve.png" width="500"><br>
+    </td>
+  </tr>
+</table>
 - Custom scripts compare predicted centroids with ground truth, calculate errors, and visualize differences.
 
 ## References
