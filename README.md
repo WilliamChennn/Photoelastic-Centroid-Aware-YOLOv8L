@@ -214,11 +214,11 @@ data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
   │
   ├── dataset/                # Training and validation images and labels
   ├── runs/                   # YOLOv8 training output models and results
-  ├── scripts/                # Custom training and prediction scripts
+  ├── train.py                # Custom training and prediction scripts
   ├── results/                # Prediction and evaluation results
   ├── README.md
-  ├── requirements.txt        # Python package dependencies
-  └── your_data.yaml          # YOLO format dataset config file
+  ├──         # Python package dependencies
+  └── data.yaml          # YOLO format dataset config file
 ```
 
 ## Evaluation
