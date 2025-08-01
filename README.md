@@ -12,6 +12,21 @@ This project implements a centroid detection system for photoelastic granular fl
 - Inference scripts to visualize and export detection results  
 - Evaluation metrics including precision, recall, and F1-score
 
+## Label Annotation
+To avoid manual annotation, we used image processing algorithms written in MATLAB to automatically extract the centroids and radii of photoelastic particles. These results are converted into YOLOv8-compatible labels. The following outlines the script structure and folder organization:
+```
+    Automated Labeling Pipeline via Image Processing
+    │
+    ├── Inputimg.tif
+    ├── Centroid.m            % Main function: image processing and particle extraction
+    ├── frameName.m           % Auxiliary function: generate file name
+    ├── dig2str.m             % Auxiliary function: number formatting
+    ├── PTV2.m                % Main process script (processing parameters and range can be modified)
+    │
+    ├── results/   
+    │   ├── label.tif   
+    │   └── label.mat
+```
 
 ## Dataset
 
