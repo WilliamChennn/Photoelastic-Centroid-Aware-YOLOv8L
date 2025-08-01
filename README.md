@@ -20,7 +20,7 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
 ```
     Automated Labeling Pipeline via Image Processing
     │
-    ├── Inputimg.tif
+    ├── Rawimg.tif
     ├── Centroid.m            % Main function: image processing and particle extraction
     ├── frameName.m           % Auxiliary function: generate file name
     ├── dig2str.m             % Auxiliary function: number formatting
@@ -33,32 +33,27 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
 ## Label Visualization
 <table>
   <tr>
-    <td><img src="Rawimg.tif" width="300"><br><center>Step 1: Raw image</center></td>
-    <td><img src="labeltif.png" width="300"><br><center>Step 2: Label image</center></td>
-      <tr>
-          <th>x (px)</th><th>y (px)</th><th>r (px)</th>
-        </tr>
-        <tr>
-          <td>17.7100</td><td>255.3656</td><td>18</td>
-        </tr>
-        <tr>
-          <td>24.1099</td><td>330.5085</td><td>24</td>
-        </tr>
-        <tr>
-          <td>12.1825</td><td>399.0238</td><td>18</td>
-        </tr>
+    <td>
+      <img src="Rawimg.jpg" width="250"><br>
+      <p align="center"><b>Raw image</b><br><code>Rawimg.tif</code></p>
+    </td>
+    <td>
+      <img src="labeltif.png" width="250"><br>
+      <p align="center"><b>Label image</b><br><code>labelimg.png</code></p>
+    </td>
+    <td>
+      <p align="center"><b>Photoelastic Centroids</b><br><code>label.mat</code></p>
+      <table>
+        <tr><th>x (px)</th><th>y (px)</th><th>r (px)</th></tr>
+        <tr><td>17.7100</td><td>255.3656</td><td>18</td></tr>
+        <tr><td>24.1099</td><td>330.5085</td><td>24</td></tr>
+        <tr><td>12.1825</td><td>399.0238</td><td>18</td></tr>
+        <tr><td>12.1902</td><td>531.2927</td><td>18</td></tr>
+        <tr><td>15.4267</td><td>612.7933</td><td>18</td></tr>
+      </table>
+    </td>
   </tr>
 </table>
-
-
-
-### `label.mat`  
-| x (px) | y (px) | r (px) |
-|--------|--------|--------|
-| 17.7100  | 255.3656  | 18   |
-| 24.1099  | 330.5085  | 24   |
-| 12.1825  | 399.0238  | 18   |
-
 
 
 ## Dataset
