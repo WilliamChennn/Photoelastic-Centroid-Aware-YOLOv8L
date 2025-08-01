@@ -88,9 +88,9 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
 ## 3. Label Transformation
 
 ```label preprocessing.py``` is the script that converts circle annotation data stored in ```.mat``` files into YOLO-compatible label files. The script normalizes the coordinates and dimensions of annotated circles to match YOLO's labeling format.
-- Extracts circle coordinates and dimensions (```x```, ```y```, ```r```) in ```.mat``` files.
+- Extracts circle coordinates and dimensions (```x```, ```y```, ```r```) in ```basename.mat``` files.
 - Extracts Raw image dimensions (```W```, ```H```).
-- Generates YOLO label as ```.txt``` files with the format:
+- Generates YOLO label as ```basename.txt``` files with the format:
 ```
 <Class_id> <Normalized_x> <Normalized_y> <Normalized_w> <Normalized_h>
 ```
