@@ -34,11 +34,11 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
 <table>
   <tr>
     <td>
-      <img src="Rawimg.jpg" width="250"><br>
+      <img src="Rawimg.jpg" width="350"><br>
       <p align="center"><b>Raw image</b><br><code>Rawimg.tif</code></p>
     </td>
     <td>
-      <img src="labeltif.png" width="250"><br>
+      <img src="labeltif.png" width="350"><br>
       <p align="center"><b>Label image</b><br><code>label.tif</code></p>
     </td>
     <td>
