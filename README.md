@@ -31,12 +31,21 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
     │   └── label.mat
 ```
 ## Label Visualization
+<table>
+  <tr>
+    <td><img src="results/img1.png" width="300"><br><center>Step 1: Raw</center></td>
+    <td><img src="labeltif.png" width="300"><br><center>Step 2: Labeled</center></td>
+  </tr>
+</table>
 
-### From `label.tif`  
-![label tif](results/label_tif_preview.png)
 
-### From `label.mat`  
-![label mat](results/label_mat_preview.png)
+
+### `label.mat`  
+| x (px) | y (px) | r (px) |
+|--------|--------|--------|
+| 17.7100  | 255.3656  | 18   |
+| 24.1099  | 330.5085  | 24   |
+| 12.1825  | 399.0238  | 18   |
 
 
 
