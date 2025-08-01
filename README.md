@@ -283,7 +283,7 @@ if __name__ == '__main__':
 <table>
   <tr>
     <td>
-      <img src="referimages/Inferenceimage.png" width="350"><br>
+      <img src="referimages/Inferenceimage.jpg" width="350"><br>
       <p align="center"><b>Inference image</b></p>
     </td>
   </tr>
@@ -291,17 +291,37 @@ if __name__ == '__main__':
 
 
 ## Project Structure
-
-  ```
-  photoelastic-centroid-yolov8/
-  │
-  ├── dataset/                # Training and validation images and labels
-  ├── runs/                   # YOLOv8 training output models and results
-  ├── train.py                # Custom training and prediction scripts
-  ├── results/                # Prediction and evaluation results
-  ├── README.md
-  ├──         # Python package dependencies
-  └── data.yaml          # YOLO format dataset config file
+```ccs
+Photoelastic-Centroid-Aware-YOLOv8L/
+│
+├── referimages/                     # reference images in the README
+│ ├── raw_image.tif
+│ ├── blurred_image.tif
+│ ├── contrast_image.tif
+│ ├── label_image.tif
+│ └── output_image.jpg
+|
+├── matlab_labeling/              # MATLAB automatic labeling source code and results
+│ ├── Centroid.m
+│ ├── frameName.m
+│ ├── dig2str.m
+│ ├── PTV2.m
+│ └── results/
+│ ├── label.tif
+│ └── label.mat
+|
+├── Inference.py                     # Inference + circle visualization scripts
+├── README.md                        # Project description and instructions (written content is recommended here)
+├── data.yaml                        # Dataset configuration file required for YOLOv8 training
+├── train.py
+├── label_preprocessing.py           # Convert .mat files to YOLO-formatted labels
+├── image_preprocessing.py           # Image preprocessing such as Gaussian blur and contrast enhancement
+|
+├── runs/                            # YOLOv8 training output (model weights, logs)
+│ └── detect/
+│ └── train/
+│ └── weights/
+│ └── best.pt
 ```
 
 ## Evaluation
