@@ -1,0 +1,6 @@
+train: C:/Users/lab533/Desktop/Best_now0321/dataset/train
+val: C:/Users/lab533/Desktop/Best_now0321/dataset/test
+
+
+nc: 1
+names: [circle]
