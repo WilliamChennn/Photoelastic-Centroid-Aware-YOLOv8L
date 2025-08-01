@@ -28,15 +28,15 @@ This helps the model more easily focus on key areas such as particle structure a
 <table>
   <tr>
     <td>
-      <img src="baselineimage.png" width="350"><br>
+      <img src="referimages/baselineimage.png" width="350"><br>
       <p align="center"><b>Raw image</b><br><code>basename.tif</code></p>
     </td>
     <td>
-      <img src="blurredimage.png" width="350"><br>
+      <img src="referimages/blurredimage.png" width="350"><br>
       <p align="center"><b>GaussianBlur</b><br><code>basename_(1).tif</code></p>
     </td>
     <td>
-      <img src="contrastedimage.png" width="350"><br>
+      <img src="referimages/contrastedimage.png" width="350"><br>
       <p align="center"><b>Contrast</b><br><code>basename_(2).tif</code></p>
     </td>
   </tr>
@@ -61,11 +61,11 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
 <table>
   <tr>
     <td>
-      <img src="Rawimg.jpg" width="350"><br>
+      <img src="referimages/Rawimg.jpg" width="350"><br>
       <p align="center"><b>Raw image</b><br><code>Rawimg.tif</code></p>
     </td>
     <td>
-      <img src="labeltif.png" width="350"><br>
+      <img src="referimages/labeltif.png" width="350"><br>
       <p align="center"><b>Label image</b><br><code>label.tif</code></p>
     </td>
     <td>
