@@ -24,7 +24,7 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
     |   ├── Centroid.m            % Main function: image processing and particle extraction
     |   ├── frameName.m           % Auxiliary function: generate file name
     |   ├── dig2str.m             % Auxiliary function: number formatting
-    |   ├── PTV2.m                % Main process script (processing parameters and range can be modified)
+    |   ├── PTV2.m                % Main process script: modify processing parameters and range 
     |   │
     |   ├── results/   
     |   │   ├── label.tif   
