@@ -39,7 +39,7 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
     </td>
     <td>
       <img src="labeltif.png" width="250"><br>
-      <p align="center"><b>Label image</b><br><code>labelimg.png</code></p>
+      <p align="center"><b>Label image</b><br><code>label.tif</code></p>
     </td>
     <td>
       <p align="center"><b>Photoelastic Centroids</b><br><code>label.mat</code></p>
