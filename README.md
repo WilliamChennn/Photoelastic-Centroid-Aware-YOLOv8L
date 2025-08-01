@@ -150,7 +150,7 @@ dataset/
 │   │   ├── basename_(2).txt 
 ```
 ### Step2. Create ```data.yaml```
-Define the dataset configuration in data.yaml. This file tells YOLO where to find the training and validation data, the number of classes, and their names. Here’s an example data.yaml file for this project:
+Define the dataset configuration in ```data.yaml```. This file tells YOLO where to find the training and validation data, the number of classes, and their names.
 ```yaml
 train: dataset/train       # Path to training images and labels
 val: dataset/test          # Path to testing images and labels
