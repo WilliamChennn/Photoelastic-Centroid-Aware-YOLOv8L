@@ -12,6 +12,9 @@ This project implements a centroid detection system for photoelastic granular fl
 - Inference scripts to visualize and export detection results  
 - Evaluation metrics including precision, recall, and F1-score
 
+
+# YOLO Data Preprocessing Script
+```Preprocessing.py``` is the script that converts circle annotation data stored in ```.mat``` files into YOLO-compatible label files. The script normalizes the coordinates and dimensions of annotated circles to match YOLO's labeling format.
 ## Label Annotation
 To avoid manual annotation, we used image processing algorithms written in MATLAB to automatically extract the centroids and radii of photoelastic particles. These results are converted into YOLOv8-compatible labels. The following outlines the script structure and folder organization:
 ```
@@ -27,6 +30,15 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
     │   ├── label.tif   
     │   └── label.mat
 ```
+## Label Visualization
+
+### From `label.tif`  
+![label tif](results/label_tif_preview.png)
+
+### From `label.mat`  
+![label mat](results/label_mat_preview.png)
+
+
 
 ## Dataset
 
