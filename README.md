@@ -15,7 +15,34 @@ This project implements a centroid detection system for photoelastic granular fl
 
 # YOLO Data Preprocessing Script
 ## 1. Image Preprocessing
-## 1. Label Annotation
+To improve the model's ability to perceive key features in images during training, this study performed a series of image preprocessing operations on the raw photoelastic images.
+
+Mainly these operations include:
+
+- Gaussian blurring: This reduces high-frequency noise and smoothes background and non-target areas.
+
+- Contrast enhancement: This enhances photoelastic streaks and particle edges, making force chain features more distinct.
+
+This helps the model more easily focus on key areas such as particle structure and stress distribution during training, thereby improving prediction accuracy.
+### Image-Preprocess Visualization
+<table>
+  <tr>
+    <td>
+      <img src="baselineimage.png" width="350"><br>
+      <p align="center"><b>Raw image</b><br><code>basename.tif</code></p>
+    </td>
+    <td>
+      <img src="blurredimage.png" width="350"><br>
+      <p align="center"><b>GaussianBlur</b><br><code>basename_(1).tif</code></p>
+    </td>
+    <td>
+      <img src="contrastedimage.png" width="350"><br>
+      <p align="center"><b>Contrast</b><br><code>basename_(2).tif</code></p>
+    </td>
+  </tr>
+</table>
+
+## 2. Label Annotation
 To avoid manual annotation, we used image processing algorithms written in MATLAB to automatically extract the centroids and radii of photoelastic particles. These results are converted into YOLOv8-compatible labels. The following outlines the script structure and folder organization:
 ```
     Automated Labeling Scripts via Image Processing
@@ -58,7 +85,7 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
   </tr>
 </table>
 
-## 2. Label Transformation
+## 3. Label Transformation
 
 ```label preprocessing.py``` is the script that converts circle annotation data stored in ```.mat``` files into YOLO-compatible label files. The script normalizes the coordinates and dimensions of annotated circles to match YOLO's labeling format.
 - Extracts circle coordinates and dimensions (```x```, ```y```, ```r```) in ```.mat``` files.
@@ -71,21 +98,66 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
      ( <Normalized_x> , <Normalized_y> ) : ( x / W , y / H ), Normalized circle center coordinates.
      ( <Normalized_w> , <Normalized_h> ) : ( 2r / W , 2r / H ), Normalized circle dimensions.
 
-- Add two additional labels with the same content and distinguished by ```basemane_(1).txt``` and ```basename_(2).txt``` to correspond to the Gaussian blurred and contrast enhanced images.
+- Add two additional labels with the same content and distinguished by ```basename_(1).txt``` and ```basename_(2).txt``` to correspond to the Gaussian blurred and contrast enhanced images.
 
-## Dataset
+## 4. Dataset Organization
+### Original Dataset
+```
+    dataset
+    ├── baseline/
+    │   ├── basename.tif/
+    │   │   ├── train/
+    │   │   ├── test/
+    │   ├── basename.txt/
+    │   │   ├── train/
+    │   │   ├── test/
+    ├── blur/
+    │   ├── basename_(1).tif/
+    │   │   ├── train/
+    │   │   ├── test/
+    │   ├── basename_(1).txt/
+    │   │   ├── train/
+    │   │   ├── test/
+    ├── contrast/
+    │   ├── basename_(2).tif/
+    │   │   ├── train/
+    │   │   ├── test/
+    │   ├── basename_(2).txt/
+    │   │   ├── train/
+    │   │   ├── test/
+```
+### Step1. Transform the Dataset Structure
+To centrally manage training and testing data for different image processing strategies (such as blurring and contrast adjustment), we have reorganized the folder structure, which was originally categorized by processing type (e.g., ```baseline/```, ```blur/```, ```contrast/```), into a structure centered around training purposes (```train/```, ```test/```).
+```
+dataset
+├── train/
+│   ├─ images/
+│   │   ├── basename.tif 
+│   │   ├── basename_(1).tif 
+│   │   ├── basename_(2).tif
+│   ├─ labels/
+│   │   ├── basename.txt
+│   │   ├── basename_(1).txt
+│   │   ├── basename_(2).txt 
+├── test/ 
+│   ├─ images/
+│   │   ├── basename.tif 
+│   │   ├── basename_(1).tif 
+│   │   ├── basename_(2).tif
+│   ├─ labels/
+│   │   ├── basename.txt
+│   │   ├── basename_(1).txt
+│   │   ├── basename_(2).txt 
+```
+### Step2. Create ```data.yaml```
+Define the dataset configuration in data.yaml. This file tells YOLO where to find the training and validation data, the number of classes, and their names. Here’s an example data.yaml file for this project:
+```
+train: ./train       # Path to training images and labels
+val: ./test          # Path to testing images and labels
 
-- Experimental photoelastic images of granular flows on inclined planes  
-- Annotations in YOLO format with bounding boxes approximating particle centroids and radii  
-- Data folder structure example:
-  ```dataset/
-    ├── images/
-    │ ├── train/
-    │ ├── test/
-    ├── labels/
-    │ ├── train/
-    │ ├── test/
-
+nc: 1                # Number of classes (only circles)
+names: [circle]      # Class name
+```
 ## Usage
 
 - Training
