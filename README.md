@@ -2,14 +2,25 @@
 YOLOv8-L based centroid detection in photoelastic granular flows on inclined surfaces.
 
 This project implements a centroid detection system for photoelastic granular flows on inclined surfaces using the YOLOv8-L model with transfer learning. The goal is to accurately detect and track particle centroids and radii from experimental images to support further granular flow analysis.
+### photoelastic granular flows on inclined surfaces
 <td style="text-align: center; vertical-align: middle;">
   <div style="display: inline-block; text-align: center;">
     <img src="referimages/slope.png" width="700"><br>
-    <b>photoelastic granular flows on inclined surfaces</b>
   </div>
 </td>
 
 ## Features
+
+### Industrial Application Value
+The photoelastic particle flow image analysis and YOLO + CNN pipeline developed in this project is not only suitable for laboratory environments but also has the potential to be extended to industrial scenarios, such as:
+
+- **Particle Detection**: Can be used in chemical, pharmaceutical, or food production lines to automatically monitor particle size and position.
+- **Semiconductor Defect Detection**: High-precision location of tiny defects or particle anomalies on wafer surfaces.
+- **High-Speed Image Monitoring**: Suitable for analyzing high-speed image data during production, detecting object position and size in real time.
+
+This pipeline demonstrates the complete process from data processing, object detection, to accuracy assessment. Through self-supervised learning and GAN-based augmentation, it can be extended to industrial applications where data is scarce or annotation costs are high.
+
+## Project Pipeline
 
 - Transfer learning using YOLOv8-L for object detection on custom photoelastic datasets  
 - Precise centroid and radius estimation from bounding boxes  
@@ -19,7 +30,6 @@ This project implements a centroid detection system for photoelastic granular fl
 <td style="text-align: center; vertical-align: middle;">
   <div style="display: inline-block; text-align: center;">
     <img src="referimages/pipeline.png" width="700"><br>
-    <b>project pipeline</b>
   </div>
 </td>
 
