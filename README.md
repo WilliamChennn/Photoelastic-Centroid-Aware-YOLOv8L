@@ -4,7 +4,7 @@ YOLOv8-L based centroid detection in photoelastic granular flows on inclined sur
 This project implements a centroid detection system for photoelastic granular flows on inclined surfaces using the YOLOv8-L model with transfer learning. The goal is to accurately detect and track particle centroids and radii from experimental images to support further granular flow analysis.
 <td style="text-align: center; vertical-align: middle;">
   <div style="display: inline-block; text-align: center;">
-    <img src="referimages/slope.png" width="500"><br>
+    <img src="referimages/slope.png" width="700"><br>
     <b>photoelastic granular flows on inclined surfaces</b>
   </div>
 </td>
@@ -18,7 +18,7 @@ This project implements a centroid detection system for photoelastic granular fl
 - Evaluation metrics including precision, recall, and F1-score
 <td style="text-align: center; vertical-align: middle;">
   <div style="display: inline-block; text-align: center;">
-    <img src="referimages/pipeline.png" width="500"><br>
+    <img src="referimages/pipeline.png" width="700"><br>
     <b>project pipeline</b>
   </div>
 </td>
