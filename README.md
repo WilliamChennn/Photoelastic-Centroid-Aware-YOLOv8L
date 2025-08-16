@@ -198,29 +198,7 @@ data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
   lr0=0.0003,       # Lower initial learning rate to prevent overfitting
   lrf=0.1,          # Reduce final learning rate for smoother convergence
   freeze=0,         # Freeze the first 5 layers to stabilize training
-  
-  # **Reduce the impact of data augmentation**
-  flipud=0.5,       # Reduce vertical flipping
-  mosaic=0.3,       # Lower mosaic probability to avoid excessive distortion
-  mixup=False,      # Disable mixup to prevent circle deformation
-  scale=0.8,        # Limit scaling factor to avoid shifting the center point
-  
-  # **Color augmentation**
-  hsv_h=0.015,      
-  hsv_s=0.3,        
-  hsv_v=0.9,        
-  
-  # **Adjust IoU and loss weights**
-  iou=0.8,          # Lower IoU threshold to allow more detections
-  box=4.0,          # Reduce box weight for balanced bounding box regression
-  cls=1.0,          # Keep classification weight unchanged
-  dfl=1.5,          # Increase distribution focal loss weight for better accuracy
-  
-  # **Mixed precision training**
-  half=True,        # Enable mixed precision for faster training
-  plots=True        # Enable loss curve visualization
 )
-
     # Validate the model
     metrics = model.val()
 ```
@@ -233,35 +211,15 @@ data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
 - Visualize the results and save the output image
 - Print information about all detected circles
 ```python
-from ultralytics import YOLO
-from PIL import Image
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-import os
 
 def adjust_radius(r):
     """Adjust radius to the closest predefined value (18 or 24)."""
     return 18 if abs(r - 18) < abs(r - 24) else 24
-
-if __name__ == '__main__':
+```
+```python
     model = YOLO('runs/detect/train/weights/best.pt')
-    
-    # input/output path setting
-    image_path = '2021.11.23_002927.tif'
-    output_folder = 'C:/Users/lab533/Desktop/'
-    os.makedirs(output_folder, exist_ok=True)
-    output_image_path = os.path.join(output_folder, 'output_image.jpg')
-    
-    # read the raw image and tranfer to gray scale
-    original_image = cv2.imread(image_path)
-    gray_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
-    
-    # gray scale thresholding
-    thresholded = np.where(gray_image >= 170, 90, gray_image)
-    thresholded_path = os.path.join(output_folder, 'thresholded_sample.tif')
-    cv2.imwrite(thresholded_path, thresholded)
-    
+```
+```python
     # inference
     results = model.predict(source=thresholded_path, save=False, conf=0.05, iou=0.2, max_det=1000, agnostic_nms=True)
     
@@ -281,21 +239,6 @@ if __name__ == '__main__':
                     detections.append((x_i, y_i, adjusted_r))
     
     sorted_detections = sorted(detections, key=lambda d: (d[0], d[1]))
-    
-    # draw
-    fig, ax = plt.subplots(figsize=(15, 15))
-    ax.imshow(cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB))  
-    
-    for x_i, y_i, r_i in sorted_detections:
-        circle = plt.Circle((x_i, y_i), r_i, color='y', fill=False, linewidth=1.5)
-        ax.add_patch(circle)
-    
-    ax.set_axis_off()
-    plt.savefig(output_image_path, bbox_inches='tight', pad_inches=0)
-    plt.show()
-    
-    for i, (x_i, y_i, r_i) in enumerate(sorted_detections):
-        print(f"Object {i + 1}: Center (x_i, y_i) = ({x_i:.2f}, {y_i:.2f}), Adjusted Radius r_i = {r_i:.2f}")
 ```
 ### Output visualization 
 1. Visualizations can clearly show the discrepancies between model predictions and actual conditions.
