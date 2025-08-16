@@ -16,7 +16,12 @@ This project implements a centroid detection system for photoelastic granular fl
 - Data preprocessing and augmentation pipelines  
 - Inference scripts to visualize and export detection results  
 - Evaluation metrics including precision, recall, and F1-score
-
+<td style="text-align: center; vertical-align: middle;">
+  <div style="display: inline-block; text-align: center;">
+    <img src="referimages/pipeline.png" width="500"><br>
+    <b>project pipeline</b>
+  </div>
+</td>
 
 # YOLO Data Preprocessing Script
 ## 1. Image Preprocessing
