@@ -181,7 +181,7 @@ names: [circle]      # Class name
 ```
 ## 5. YOLOv8l Training
 
-- Training Script with Hyperparameter Tuning
+```train.py``` Training Script with Hyperparameter Tuning
   
 ```python
 from ultralytics import YOLO
@@ -204,21 +204,17 @@ data='C:/Users/lab533/Desktop/Best_now0321/data.yaml',
 ```
 ## 6. YOLOv8 circular object detection
 ```Inference.py``` shows that the particle analysis in photoelastic images by ```best.pt```, which is trained YOLOv8l. Assuming each detection frame represents a roughly circular particle, it converts it into (x, y, r) format for subsequent analysis.
-- Load the trained YOLOv8 model
-- Convert the original image to grayscale and apply simple thresholding
-- Perform inference to obtain all bounding boxes
-- Convert each box to a circle center and radius, and normalize by size (18 or 24)
-- Visualize the results and save the output image
-- Print information about all detected circles
+  - Load the trained YOLOv8 model
 ```python
-
+    model = YOLO('runs/detect/train/weights/best.pt')
+```
+- Convert each box to a circle center and radius, and normalize by size (18 or 24)
+```python
 def adjust_radius(r):
     """Adjust radius to the closest predefined value (18 or 24)."""
     return 18 if abs(r - 18) < abs(r - 24) else 24
 ```
-```python
-    model = YOLO('runs/detect/train/weights/best.pt')
-```
+- Perform inference to obtain all bounding boxes
 ```python
     # inference
     results = model.predict(source=thresholded_path, save=False, conf=0.05, iou=0.2, max_det=1000, agnostic_nms=True)
