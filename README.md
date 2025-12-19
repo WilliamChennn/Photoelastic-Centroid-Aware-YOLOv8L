@@ -97,9 +97,6 @@ To avoid manual annotation, we used image processing algorithms written in MATLA
         <tr><td>12.1825</td><td>399.0238</td><td>18</td></tr>
         <tr><td>12.1902</td><td>531.2927</td><td>18</td></tr>
         <tr><td>15.4267</td><td>612.7933</td><td>18</td></tr>
-        <tr><td>17.5299</td><td>672.2507</td><td>18</td></tr>
-        <tr><td>15.4957</td><td>759.8788</td><td>18</td></tr>
-        <tr><td>18.7855</td><td>842.1072</td><td>18</td></tr>
       </table>
       <p align="center"><b>Photoelastic Centroids</b><br><code>label.mat</code></p>
     </td>
